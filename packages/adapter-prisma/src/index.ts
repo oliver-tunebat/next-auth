@@ -242,7 +242,7 @@ export function PrismaAdapter(
       return p.user.create({ data })
     },
     getUser: (id) => p.user.findUnique({ where: { id } }),
-    getUserByEmail: (email) => p.user.findUnique({ where: { email } }),
+    getUserByEmail: (email) => p.user.findFirst({ where: { email } }),
     async getUserByAccount(provider_providerAccountId) {
       const account = await p.account.findUnique({
         where: { provider_providerAccountId },
